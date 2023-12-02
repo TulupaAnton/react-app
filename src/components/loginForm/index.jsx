@@ -1,4 +1,10 @@
 import { useState } from "react";
+import styles from "./LoginForm.module.css";
+
+const LOGIN_FORM_REG_EXP = {
+  login: /^.+@.+$/,
+  password: /^(?=.*[A-Z].*)(?=.*[a-z].*) (?=.*\d.*)(?=.*[!#%._].*).{8,16}$/,
+};
 
 function LoginForm() {
   const [login, setLogin] = useState("");
@@ -16,13 +22,17 @@ function LoginForm() {
     setLogin("");
     setPassword("");
   }
+
+  const loginClassName = `${styles.formInput}`;
+
   return (
-    <div>
-      <h2>Login Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>Login:</span>
+    <div className={styles.formContainer}>
+      <h2 className={styles.formTitle}>Login Form</h2>
+      <form className={styles.loginForm} onSubmit={handleSubmit}>
+        <label className={styles.formLabel}>
+          <span className={styles.labelCaption}>Login:</span>
           <input
+            className={styles.formInput}
             type="email"
             value={login}
             onChange={handleLoginChange}
@@ -30,9 +40,10 @@ function LoginForm() {
             name="login"
             autoFocus
           />
-          <label>
-            <span>Password:</span>
+          <label className={styles.formLabel}>
+            <span className={styles.labelCaption}>Password:</span>
             <input
+              className={styles.formInput}
               type="password"
               placeholder="your password"
               name="password"
@@ -41,7 +52,9 @@ function LoginForm() {
             />
           </label>
         </label>
-        <button type="submit">Login</button>
+        <button className={styles.loginBtn} type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

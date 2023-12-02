@@ -1,0 +1,50 @@
+.formContainer {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  padding: 10px;
+  background-color: aqua;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: antiquewhite;
+}
+
+.formTitle {
+  text-align: center;
+}
+
+.formLabel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.labelCaption {
+  flex: 1 1 150px;
+}
+.formInput {
+  padding: 5px;
+  flex: 3 1 150px;
+  outline: none;
+}
+
+.loginBtn {
+  padding: 5px;
+  margin: 10px;
+}
+
+.valid {
+  background-color: aquamarine;
+  border: 1px solid green;
+}
+
+.invalid {
+  background-color: darksalmon;
+  border: 1px solid red;
+}
