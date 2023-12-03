@@ -1,7 +1,7 @@
-import Weather from "./components/Weather";
+import RandomUsers from "./components/RandomUsers";
 
 function App() {
-  return <Weather />;
+  return <RandomUsers />;
 }
 
 export default App;
