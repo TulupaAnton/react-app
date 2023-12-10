@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import Counter from "./components/Counter";
+import User from "./components/User";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Link,
   useHistory,
+  useRouteMatch,
 } from "react-router-dom";
 
 function App() {
@@ -59,7 +62,23 @@ function Home() {
 }
 
 function Components() {
-  return <div>Components</div>;
+  const { url, path } = useRouteMatch();
+  return (
+    <div>
+      <Link to={`${url}/counter`}>Counter</Link>
+      {"     "}
+      <Link to={`${url}/user`}>User</Link>
+      <Switch>
+        <Route path={`${path}/counter`}>
+          <Counter />
+        </Route>
+
+        <Route path={`${path}/User`}>
+          <User />
+        </Route>
+      </Switch>
+    </div>
+  );
 }
 function About() {
   return <div>About</div>;
