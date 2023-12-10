@@ -1,37 +1,31 @@
-import { useContext } from "react";
-import { createContext } from "react";
-const DataContext = createContext("default");
-const UserContext = createContext(null);
+// -App
+//  -UserPage
+//    -Header
+//      -ThemeSwitcher
+//    -main
 
+import { useState } from "react";
+import classNames from "classnames";
+import { ThemeContext } from "./Contents";
+import UserPage from "./pages/UserPage";
+import styles from "./App.module.css";
+// light,dark,gold
 function App() {
-  const data = "data in App";
-  const user = { name: "Test", surname: "Testovych" };
+  const [theme, setTheme] = useState("dark");
+
+  const containerClassNames = classNames(styles.pageContainer, {
+    [styles.light]: theme === "light",
+    [styles.dark]: theme === "dark",
+    [styles.gold]: theme === "gold",
+  });
+
   return (
-    <UserContext.Provider value={user}>
-      <DataContext.Provider value={data}>
-        <Child />
-      </DataContext.Provider>
-    </UserContext.Provider>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={containerClassNames}>
+        <UserPage />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
 export default App;
-
-function Child() {
-  return <ChildChild />;
-}
-
-function ChildChild() {
-  const data = useContext(DataContext);
-  return (
-    <div>
-      {data}
-      <ChildChildChild />
-    </div>
-  );
-}
-
-function ChildChildChild() {
-  const user = useContext(UserContext);
-  return <div>{user.name}</div>;
-}
