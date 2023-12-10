@@ -1,3 +1,5 @@
+import queryString from "query-string";
+
 import CONFIG from "./../config";
 
 export function loadUsers(options) {
@@ -5,11 +7,14 @@ export function loadUsers(options) {
     page: 1,
     results: 10,
     baseUrl: CONFIG.BASE_URL,
-    resultsOrder: CONFIG.RESULTS_ORDER,
+    seed: CONFIG.RESULTS_ORDER,
   };
-  const realOptions = { ...defaultOptions, ...options };
+  const { baseUrl, ...realOptions } = {
+    ...defaultOptions,
+    ...options,
+  };
 
-  return fetch(
-    `${realOptions.baseUrl}?results=${realOptions.results}&page=${realOptions.page}&seed=${realOptions.resultsOrder}`
-  ).then((response) => response.json());
+  return fetch(`${baseUrl}?${queryString.stringify(realOptions)}`).then(
+    (response) => response.json()
+  );
 }
