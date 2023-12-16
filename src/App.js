@@ -6,6 +6,7 @@ import {
   Route,
   Switch,
   Link,
+  NavLink,
   useHistory,
   useRouteMatch,
 } from "react-router-dom";
@@ -17,17 +18,41 @@ function App() {
         <ul>
           <li>
             {" "}
-            <Link to="/"> Home </Link>
+            <NavLink
+              style={(isActive) => ({ color: isActive ? "green" : "blue" })}
+              to="/"
+            >
+              {" "}
+              Home{" "}
+            </NavLink>
           </li>
           <li>
-            <Link to="/about"> About </Link>
+            <NavLink
+              style={(isActive) => ({ color: isActive ? "green" : "blue" })}
+              to="/about"
+            >
+              {" "}
+              About{" "}
+            </NavLink>
           </li>
           <li>
-            <Link to="/Components"> Components </Link>
+            <NavLink
+              style={(isActive) => ({ color: isActive ? "green" : "blue" })}
+              to="/Components"
+            >
+              {" "}
+              Components{" "}
+            </NavLink>
           </li>
           <li>
             {" "}
-            <Link to="/Contacts"> Contacts </Link>
+            <NavLink
+              style={(isActive) => ({ color: isActive ? "green" : "blue" })}
+              to="/Contacts"
+            >
+              {" "}
+              Contacts{" "}
+            </NavLink>
           </li>
         </ul>
       </nav>
