@@ -1,5 +1,7 @@
+import UserinfoForm from "./components/UserInfoForm";
+
 function App() {
-  return <></>;
+  return <UserinfoForm />;
 }
 
 export default App;
