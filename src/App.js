@@ -1,7 +1,5 @@
-import UsersListWithClasses from "./components/UsersListWithClasses";
-
 function App() {
-  return <UsersListWithClasses />;
+  return <></>;
 }
 
 export default App;

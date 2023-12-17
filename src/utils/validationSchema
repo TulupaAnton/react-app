@@ -1,0 +1,42 @@
+import * as yup from "yup";
+// // //1 визначення схеми
+// // const USER_SCHEMA = yup.object({
+// //   login: yup.string().email("IT IS A NOT VALID EMAIL").required(),
+// //   password: yup
+// //     .string()
+// //     .trim()
+// //     .min(8)
+// //     .max(64)
+// //     .matches(/(?=.*[A-Z].*)(?=.*[a-z].*).*/, "PASS MUST CONTAIN AT LEAST 1 A-Z")
+// //     .required(),
+// // });
+
+// // const lodinData = {
+// //   login: "ajkdf@sksjklaj",
+// //   password: " ASDADASDASDAS ",
+// // };
+
+// // USER_SCHEMA.validate(lodinData)
+// //   .then((data) => console.log(data))
+// //   .catch((err) => console.log(err));
+
+// const CAR_SCHEMA = yup.object({
+//   model: yup.string().required(),
+//   productionYear: yup.date().min(1999).max(2023),
+//   km: yup.number().min(1).max(9999999),
+//   number: yup
+//     .string()
+//     .min(8)
+//     .matches(/(?=.*[A-Z].*)(?=.*[1-9].*)/),
+// });
+
+// const carInfo = {
+//   model: "BMW",
+//   productionYear: "1999",
+//   km: "6456556",
+//   number: "AA6680AP",
+// };
+
+// CAR_SCHEMA.validate(carInfo)
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
